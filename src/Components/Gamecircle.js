@@ -1,8 +1,15 @@
 import React from 'react'
 
-function Gamecircle() {
+const onclick = () => {
+  alert('onClick');
+}
+
+function Gamecircle ({id}) {
+  console.log(id);
   return (
-    <div>Gamecircle</div>
+    <div onClick={onclick}>
+      Gamecircle - id= {id}
+    </div>
   )
 }
 
