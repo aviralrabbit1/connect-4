@@ -4,7 +4,7 @@ const onclick = () => {
   alert('onClick');
 }
 
-function Gamecircle ({id}) {
+const Gamecircle = ({id}) => {
   console.log(id);
   return (
     <div onClick={onclick}>
