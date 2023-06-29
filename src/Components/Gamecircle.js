@@ -1,14 +1,14 @@
 import React from 'react'
 
-const onclick = (id) => {
+const onclick = (id, value) => {
   debugger;
   alert('onClick' + id);
 }
 
-const Gamecircle = ({id, children}) => {
+const Gamecircle = ({id, value, children}) => {
   console.log(id);
   return (
-    <div onClick={() => onclick(id) }>
+    <div onClick={() => onclick(id, value) }>
       Gamecircle - id= {id}
 
       {children}
