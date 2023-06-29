@@ -9,7 +9,7 @@ const Gamecircle = ({id, value, children}) => {
   console.log(id);
   return (
     <div onClick={(event) => onclick(event, id, value) }>
-      Gamecircle - id= {id}
+      {/* Gamecircle - id= {id} */}
 
       {children}
     </div>

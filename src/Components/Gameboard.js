@@ -5,35 +5,35 @@ function Gameboard() {
   return (
     <div>
         <Gamecircle id ={1} value={7} >
-            <div>Red</div>
+            <span style={{color: 'red'}} >Red</span>
         </Gamecircle>
         
         <Gamecircle id ={2} value={7} >
-            <div>Blue</div>
+            <span style={{color: 'blue'}} >Blue</span>
         </Gamecircle>
         
         <Gamecircle id ={3} value={7} >
-            <div>Red</div>
+            <span style={{color: 'red'}} >Red</span>
         </Gamecircle>
-        
+
         <Gamecircle id ={4} value={7} >
-            <div>Blue</div>
+            <span style={{color: 'blue'}} >Blue</span>
         </Gamecircle>
         
         <Gamecircle id ={5} value={7} >
-            <div>Red</div>
+            <span style={{color: 'red'}} >Red</span>
         </Gamecircle>
         
         <Gamecircle id ={6} value={7} >
-            <div>Blue</div>
+            <span style={{color: 'blue'}} >Blue</span>
         </Gamecircle>
         
         <Gamecircle id ={7} value={7} >
-            <div>Red</div>
+            <span style={{color: 'red'}} >Red</span>
         </Gamecircle>
         
         <Gamecircle id ={8} value={7} >
-            <div>Blue</div>
+            <span style={{color: 'blue'}} >Blue</span>
         </Gamecircle>
         
     </div>
