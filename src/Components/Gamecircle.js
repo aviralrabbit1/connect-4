@@ -7,12 +7,12 @@ const onclick = (event, id) => {
 }
 
 const Gamecircle = ({id, color, children}) => {
-  const style = {
-    backgroundColor: color, 
-  }
+  // const style = {
+  //   backgroundColor: color, 
+  // }
   console.log(id);
   return (
-    <div className="gameCircle" style={style} onClick={(event) => onclick(event, id) }>
+    <div className="gameCircle" style={id%2==0? {backgroundColor:'red'}:{backgroundColor: 'blue'}} onClick={(event) => onclick(event, id) }>
       {/* Gamecircle - id= {id} */}
 
       {children}
