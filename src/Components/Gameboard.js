@@ -3,7 +3,7 @@ import Gamecircle from './Gamecircle'
 import '../App.css'
 import Header from './Header';
 import Footer from './Footer';
-import { isWinner } from '../Helper';
+import { isDraw, isWinner } from '../Helper';
 import { render } from '@testing-library/react';
 
 export const NUM_CIRCLES = 16; 
@@ -16,7 +16,7 @@ export const GAME_STATE_WIN = 2;
 export const GAME_STATE_DRAW = 3;
 
 function Gameboard() {
-  const [gameBoard, setGameBoard] = useState(Array(16).fill(null));
+  const [gameBoard, setGameBoard] = useState(Array(NUM_CIRCLES).fill(null));
   const [currentPlayer, setCurrentPlayer] = useState(PLAYER_1);
   const [gameState, setGameState] = useState(GAME_STATE_PLAYING);
   const [winPlayer, setWinPlayer] = useState(NO_PLAYER);
@@ -48,6 +48,12 @@ function Gameboard() {
       setGameState(GAME_STATE_WIN);
       setWinPlayer(currentPlayer);
     }
+    
+    // if(isDraw(gameBoard, id, currentPlayer)){
+    //   console.log("Game is Draw");
+    //   setGameState(GAME_STATE_DRAW);
+    //   setWinPlayer(NO_PLAYER);
+    // }
     
     // const board = [...gameBoard]; //spread syntax making shallow copies
     //avoid mutation and use map,filter, etc.

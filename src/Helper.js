@@ -1,7 +1,7 @@
 export const isWinner = (gameBoard, currentMove, currentPlayer) => {
     let board = [...gameBoard]; //shallow copy
     board[currentMove] = currentPlayer;
-
+    
     const winLines = [
         [0, 1, 2, 3],
         [4, 5, 6, 7],
@@ -25,4 +25,12 @@ export const isWinner = (gameBoard, currentMove, currentPlayer) => {
             }
         }
     return false;
+}
+
+export const isDraw = (gameBoard, currentMove, currentPlayer) => {
+    let board = [...gameBoard]; //shallow copy
+    board[currentMove] = currentPlayer;
+    
+    let count = board.reduce((n, x)=> n+(x===0), 0);
+    return count === 0;    
 }
