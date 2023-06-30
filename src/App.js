@@ -2,7 +2,7 @@ import './App.css';
 import Gameboard from './Components/Gameboard';
 function App() {
   return (
-    <div className="App">
+    <div className="app">
       <Gameboard/>
     </div>
   );
