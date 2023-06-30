@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import '../App.css'
 
 const onclick = (event, id) => {
   debugger;
@@ -8,14 +9,10 @@ const onclick = (event, id) => {
 const Gamecircle = ({id, color, children}) => {
   const style = {
     backgroundColor: color, 
-    width: 100, 
-    height: 100, 
-    margin: 10, 
-    borderRadius: '50%'
   }
   console.log(id);
   return (
-    <div style={style} onClick={(event) => onclick(event, id) }>
+    <div className="gameCircle" style={style} onClick={(event) => onclick(event, id) }>
       {/* Gamecircle - id= {id} */}
 
       {children}
