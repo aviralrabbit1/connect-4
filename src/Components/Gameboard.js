@@ -11,72 +11,29 @@ function Gameboard() {
     setGameBoard(gameBoard);
     console.log(gameBoard);
   }
+
+  const renderCircle = (id) => {
+    return <Gamecircle id={id} className={`player_${gameBoard[id]}`} onCircleClicked={circleClicked} />
+  }
+
   return (
     <div className='gameBoard' >
-        <Gamecircle id ={1} className="player_1" onCircleClicked={circleClicked} >
-            {/* <span style={{color: 'red'}} >Red</span> */}
-        </Gamecircle>
-        
-        <Gamecircle id ={2} className="player_2" onCircleClicked={circleClicked} >
-            {/* <span style={{color: 'blue'}} >Blue</span> */}
-        </Gamecircle>
-        
-        <Gamecircle id ={3} className="player_1" onCircleClicked={circleClicked} >
-            {/* <span style={{color: 'red'}} >Red</span> */}
-        </Gamecircle>
-
-        <Gamecircle id ={4} className="player_2" onCircleClicked={circleClicked} >
-            {/* <span style={{color: 'blue'}} >Blue</span> */}
-        </Gamecircle>
-        
-        <Gamecircle id ={5} className="player_1" onCircleClicked={circleClicked} >
-            {/* <span style={{color: 'red'}} >Red</span> */}
-        </Gamecircle>
-        
-        <Gamecircle id ={6} className="player_2" onCircleClicked={circleClicked} >
-            {/* <span style={{color: 'blue'}} >Blue</span> */}
-        </Gamecircle>
-        
-        <Gamecircle id ={7} className="player_1" onCircleClicked={circleClicked} >
-            {/* <span style={{color: 'red'}} >Red</span> */}
-        </Gamecircle>
-        
-        <Gamecircle id ={8} className="player_2" onCircleClicked={circleClicked} >
-            {/* <span style={{color: 'blue'}} >Blue</span> */}
-        </Gamecircle>
-
-        <Gamecircle id ={9}  className="player_1"onCircleClicked={circleClicked} >
-            {/* <span style={{color: 'red'}} >Red</span> */}
-        </Gamecircle>
-        
-        <Gamecircle id ={10} className="player_2" onCircleClicked={circleClicked} >
-            {/* <span style={{color: 'blue'}} >Blue</span> */}
-        </Gamecircle>
-        
-        <Gamecircle id ={11} className="player_1" onCircleClicked={circleClicked} >
-            {/* <span style={{color: 'red'}} >Red</span> */}
-        </Gamecircle>
-
-        <Gamecircle id ={12} className="player_2" onCircleClicked={circleClicked} >
-            {/* <span style={{color: 'blue'}} >Blue</span> */}
-        </Gamecircle>
-        
-        <Gamecircle id ={13} className="player_1" onCircleClicked={circleClicked} >
-            {/* <span style={{color: 'red'}} >Red</span> */}
-        </Gamecircle>
-        
-        <Gamecircle id ={14} className="player_2" onCircleClicked={circleClicked} >
-            {/* <span style={{color: 'blue'}} >Blue</span> */}
-        </Gamecircle>
-        
-        <Gamecircle id ={15} className="player_1" onCircleClicked={circleClicked} >
-            {/* <span style={{color: 'red'}} >Red</span> */}
-        </Gamecircle>
-        
-        <Gamecircle id ={16} className="player_2" onCircleClicked={circleClicked} >
-            {/* <span style={{color: 'blue'}} >Blue</span> */}
-        </Gamecircle>
-        
+        {renderCircle(0)}        
+        {renderCircle(1)}        
+        {renderCircle(2)}        
+        {renderCircle(3)}        
+        {renderCircle(4)}        
+        {renderCircle(5)}        
+        {renderCircle(6)}        
+        {renderCircle(7)}        
+        {renderCircle(8)}        
+        {renderCircle(9)}        
+        {renderCircle(10)}        
+        {renderCircle(11)}        
+        {renderCircle(12)}        
+        {renderCircle(13)}        
+        {renderCircle(14)}        
+        {renderCircle(15)}        
     </div>
   )
 } 
