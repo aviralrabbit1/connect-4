@@ -3,6 +3,7 @@ import Gamecircle from './Gamecircle'
 import '../App.css'
 import Header from './Header';
 import Footer from './Footer';
+import { isWinner } from '../Helper';
 
 const NUM_CIRCLES = 16; 
 const NO_PLAYER = 0;
@@ -29,27 +30,36 @@ function Gameboard() {
   const circleClicked = (id) => {
     console.log("circle clicked " + id);
 
-    const board = [...gameBoard]; //spread syntax making shallow copies
+    if(isWinner(gameBoard, id, currentPlayer)){
+      console.log("Player " + currentPlayer + " wins");
+    }
+    
+    // const board = [...gameBoard]; //spread syntax making shallow copies
     //avoid mutation and use map,filter, etc.
     // board[id] = 1; 
-    board[id] = currentPlayer;
+    // board[id] = currentPlayer;
     setGameBoard(prev =>{
       return prev.map((circle, position) => {
         if (position===id) {
           return currentPlayer;
         }
         return circle;
-      })
+      });
     });
+    
 
     setCurrentPlayer(currentPlayer===PLAYER_1? PLAYER_2: PLAYER_1);
 
-    console.log(gameBoard);
-    console.log(currentPlayer);
+    // console.log(gameBoard);
+    // console.log(currentPlayer);
   }
 
   const renderCircle = (id) => {
-    return <Gamecircle key={id} id={id} className={`player_${gameBoard[id]}`} onCircleClicked={circleClicked} />
+    return <Gamecircle 
+              key={id} id={id} 
+              className={`player_${gameBoard[id]}`} 
+              onCircleClicked={circleClicked} 
+            />
   }
 
   return (

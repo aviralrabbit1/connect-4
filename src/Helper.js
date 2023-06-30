@@ -1,4 +1,7 @@
-export const isWinner = (gameBoard) => {
+export const isWinner = (gameBoard, currentMove, currentPlayer) => {
+    let board = [...gameBoard]; //shallow copy
+    board[currentMove] = currentPlayer;
+
     const winLines = [
         [0, 1, 2, 3],
         [4, 5, 6, 7],
@@ -11,15 +14,15 @@ export const isWinner = (gameBoard) => {
         [0, 5, 10, 16],
         [3, 6, 9, 12]
     ];
-    for(let i = 0; i < winLines; i++) {
+    for(let i = 0; i < winLines.length; i++) {
         const [c1, c2, c3, c4] = winLines[i];
+
         if(gameBoard[c1]>0 &&
             gameBoard[c1]===gameBoard[c2] &&
             gameBoard[c2]===gameBoard[c3] &&
-            gameBoard[c3]===gameBoard[c4]
-            ){
+            gameBoard[c3]===gameBoard[c4]){
                 return true;
             }
-        return false;
-    }
+        }
+    return false;
 }
