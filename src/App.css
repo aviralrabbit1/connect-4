@@ -1,8 +1,19 @@
+body{
+  background-color: cornflowerblue;
+}
+
+.app{
+  width: 800px;
+  height: 800px;
+  position: absolute;
+  left: 20%;
+}
+
 .panel{
   position: absolute;
   background-color: lightgoldenrodyellow;
   border: 3px solid burlywood;
-  -webkit-box-shadow: 7px 5px 15px 3 px rgba(0, 0, 0, 0.9);
+  -webkit-box-shadow: 7px 5px 15px 3px rgba(0, 0, 0, 0.9);
   box-shadow: 7px 5px 15px 3px rgba(0, 0, 0, 0.9);
   z-index: 1;
 }
@@ -43,7 +54,7 @@
   left:50%;
   background-color: lightblue  ;
   border: 5px solid chocolate;
-  border-radius: 8%;
+  /* border-radius: 10%; */
 }
 
 .gameBoard {

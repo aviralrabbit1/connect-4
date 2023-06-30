@@ -42,7 +42,7 @@ function Gameboard() {
       })
     });
 
-    setCurrentPlayer(currentPlayer==PLAYER_1? PLAYER_2: PLAYER_1);
+    setCurrentPlayer(currentPlayer===PLAYER_1? PLAYER_2: PLAYER_1);
 
     console.log(gameBoard);
     console.log(currentPlayer);
