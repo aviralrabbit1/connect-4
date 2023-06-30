@@ -4,15 +4,22 @@ import '../App.css'
 import Header from './Header';
 import Footer from './Footer';
 import { isWinner } from '../Helper';
+import { render } from '@testing-library/react';
 
-const NUM_CIRCLES = 16; 
-const NO_PLAYER = 0;
-const PLAYER_1 = 1;
-const PLAYER_2 = 2;
+export const NUM_CIRCLES = 16; 
+export const NO_PLAYER = 0;
+export const PLAYER_1 = 1;
+export const PLAYER_2 = 2;
+export const GAME_STATE_IDLE_= 0;
+export const GAME_STATE_PLAYING= 1;
+export const GAME_STATE_WIN = 2;
+export const GAME_STATE_DRAW = 3;
 
 function Gameboard() {
-  const [gameBoard, setGameBoard] = useState(Array(16).fill(NO_PLAYER));
+  const [gameBoard, setGameBoard] = useState(Array(16).fill(null));
   const [currentPlayer, setCurrentPlayer] = useState(PLAYER_1);
+  const [gameState, setGameState] = useState(GAME_STATE_PLAYING);
+  const [winPlayer, setWinPlayer] = useState(NO_PLAYER);
 
   // const initializeBoard = () => {
   //   setCurrentPlayer = PLAYER_1;
@@ -28,10 +35,15 @@ function Gameboard() {
   }
   
   const circleClicked = (id) => {
+    if(gameBoard[id]){
+      return;
+    }
     console.log("circle clicked " + id);
 
     if(isWinner(gameBoard, id, currentPlayer)){
       console.log("Player " + currentPlayer + " wins");
+      setGameState(GAME_STATE_WIN);
+      setWinPlayer(currentPlayer);
     }
     
     // const board = [...gameBoard]; //spread syntax making shallow copies
@@ -64,8 +76,8 @@ function Gameboard() {
 
   return (
     <>
-      <Header player={currentPlayer} />
-      <div className='gameBoard' >
+      <Header gameState={gameState} currentPlayer={currentPlayer} winPlayer={winPlayer} />
+      <div className="gameBoard" >
         {initBoard()}       
       </div>
       <Footer/>
