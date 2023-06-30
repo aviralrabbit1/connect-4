@@ -2,13 +2,21 @@ import React, {useState} from 'react'
 import Gamecircle from './Gamecircle'
 import '../App.css'
 
+const NO_PLAYER = 0;
+const PLAYER_1 = 1;
+const PLAYER_2 = 2;
+
 function Gameboard() {
-  const [gameBoard, setGameBoard] = useState(Array(16).fill(0));
+  const [gameBoard, setGameBoard] = useState(Array(16).fill(NO_PLAYER));
+  const [currentPlayer, setCurrentPlayer] = useState(PLAYER_1);
   
   const circleClicked = (id) => {
     console.log("circle clicked " + id);
-    gameBoard[id] =1;
+    gameBoard[id] = currentPlayer;
     setGameBoard(gameBoard);
+
+    setCurrentPlayer(currentPlayer==PLAYER_1? PLAYER_2: PLAYER_1);
+
     console.log(gameBoard);
   }
 
