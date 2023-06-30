@@ -12,12 +12,24 @@ function Gameboard() {
   
   const circleClicked = (id) => {
     console.log("circle clicked " + id);
-    gameBoard[id] = currentPlayer;
-    setGameBoard(gameBoard);
+
+    const board = [...gameBoard]; //spread syntax making shallow copies
+    //avoid mutation and use map,filter, etc.
+    // board[id] = 1;
+    board[id] = currentPlayer;
+    setGameBoard(prev =>{
+      return prev.map((circle, position) => {
+        if (position===id) {
+          return currentPlayer;
+        }
+        return circle;
+      })
+    });
 
     setCurrentPlayer(currentPlayer==PLAYER_1? PLAYER_2: PLAYER_1);
 
     console.log(gameBoard);
+    console.log(currentPlayer);
   }
 
   const renderCircle = (id) => {
