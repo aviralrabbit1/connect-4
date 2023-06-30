@@ -2,9 +2,19 @@ import React from 'react'
 import Gamecircle from './Gamecircle'
 
 function Gameboard() {
+  const style = {
+    display: 'grid', 
+    gridTemplateColumns: '1fr 1fr 1fr 1fr', 
+    gridTemplateRows: '1fr 1fr 1fr 1fr', 
+    padding: 20, 
+    width: '500px',
+    position: 'absolute',
+    left: '50%',
+    marginLeft: -250,
+    top: '10%',
+  }
   return (
-    <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr 1fr 1fr', 
-    gridTemplateRows: '1fr 1fr 1fr 1fr', padding: 20, width: 100}}>
+    <div style={style}>
         <Gamecircle id ={1} color="red"  >
             {/* <span style={{color: 'red'}} >Red</span> */}
         </Gamecircle>
