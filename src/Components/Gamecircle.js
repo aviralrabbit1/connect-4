@@ -12,7 +12,7 @@ const Gamecircle = ({id, children, onCircleClicked}) => {
 
   console.log(id);
   return (
-    <div className={`gameCircle ${id%2==0?"odd":"even"}`} 
+    <div className={`gameCircle player_0`} 
     // style={id%2==0? {backgroundColor:'red'}:{backgroundColor: 'blue'}} 
     onClick={(event) => onclick(event, id) }>
       {/* Gamecircle - id= {id} */}
