@@ -10,8 +10,7 @@ const Gamecircle = ({id, children, className, onCircleClicked}) => {
     onCircleClicked(id);  
   }
 
-  console.log(id);
-  return (
+  return (  
     <div className={`gameCircle ${className}`} 
     // style={id%2==0? {backgroundColor:'red'}:{backgroundColor: 'blue'}} 
     onClick={(event) => onclick(event, id) }>
