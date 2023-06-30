@@ -1,10 +1,10 @@
 import React from 'react'
 
-function Header() {
+function Header({player}) {
   return (
     <div className='panel header'>
         <div className='header-text'>
-            Player turn
+            Player {player} turn
         </div>
     </div>
   )
