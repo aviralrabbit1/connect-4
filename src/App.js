@@ -1,5 +1,4 @@
 import './App.css';
-import './App.css';
 import Gameboard from './Components/Gameboard';
 function App() {
   return (
