@@ -15,11 +15,17 @@
   height: 100px;
   margin: 10px 10px 10px 10px;
   border-radius: 50%;
+  border: 1px solid black;
 }
 
-.odd{
+.player_0{
+  background-color: rgb(232, 238, 153);
+}
+
+.player_1{
   background-color: red;
 }
-.even{
+
+.player_2{
   background-color: blue;
 }

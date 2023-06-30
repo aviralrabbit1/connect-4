@@ -1,74 +1,58 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Gamecircle from './Gamecircle'
 import '../App.css'
 
+const NUM_CIRCLES = 16; 
+const NO_PLAYER = 0;
+const PLAYER_1 = 1;
+const PLAYER_2 = 2;
+
 function Gameboard() {
+  const [gameBoard, setGameBoard] = useState(Array(16).fill(NO_PLAYER));
+  const [currentPlayer, setCurrentPlayer] = useState(PLAYER_1);
+
+  // const initializeBoard = () => {
+  //   setCurrentPlayer = PLAYER_1;
+  //   setGameBoard(Array(16).fill(NO_PLAYER));
+  // }
+
+  const initBoard = () => {
+    const circles = [];
+    for(let i = 0; i < NUM_CIRCLES; i++){
+      circles.push(renderCircle(i));
+    }
+    return circles;
+  }
+  
+  const circleClicked = (id) => {
+    console.log("circle clicked " + id);
+
+    const board = [...gameBoard]; //spread syntax making shallow copies
+    //avoid mutation and use map,filter, etc.
+    // board[id] = 1; 
+    board[id] = currentPlayer;
+    setGameBoard(prev =>{
+      return prev.map((circle, position) => {
+        if (position===id) {
+          return currentPlayer;
+        }
+        return circle;
+      })
+    });
+
+    setCurrentPlayer(currentPlayer==PLAYER_1? PLAYER_2: PLAYER_1);
+
+    console.log(gameBoard);
+    console.log(currentPlayer);
+  }
+
+  const renderCircle = (id) => {
+    return <Gamecircle id={id} className={`player_${gameBoard[id]}`} onCircleClicked={circleClicked} />
+  }
+
   return (
     <div className='gameBoard' >
-        <Gamecircle id ={1} color="red"  >
-            {/* <span style={{color: 'red'}} >Red</span> */}
-        </Gamecircle>
-        
-        <Gamecircle id ={2} color="blue"  >
-            {/* <span style={{color: 'blue'}} >Blue</span> */}
-        </Gamecircle>
-        
-        <Gamecircle id ={3} color="red"  >
-            {/* <span style={{color: 'red'}} >Red</span> */}
-        </Gamecircle>
-
-        <Gamecircle id ={4} color="blue"  >
-            {/* <span style={{color: 'blue'}} >Blue</span> */}
-        </Gamecircle>
-        
-        <Gamecircle id ={5} color="red"  >
-            {/* <span style={{color: 'red'}} >Red</span> */}
-        </Gamecircle>
-        
-        <Gamecircle id ={6} color="blue"  >
-            {/* <span style={{color: 'blue'}} >Blue</span> */}
-        </Gamecircle>
-        
-        <Gamecircle id ={7} color="red"  >
-            {/* <span style={{color: 'red'}} >Red</span> */}
-        </Gamecircle>
-        
-        <Gamecircle id ={8} color="blue"  >
-            {/* <span style={{color: 'blue'}} >Blue</span> */}
-        </Gamecircle>
-
-        <Gamecircle id ={9} color="red"  >
-            {/* <span style={{color: 'red'}} >Red</span> */}
-        </Gamecircle>
-        
-        <Gamecircle id ={10} color="blue"  >
-            {/* <span style={{color: 'blue'}} >Blue</span> */}
-        </Gamecircle>
-        
-        <Gamecircle id ={11} color="red"  >
-            {/* <span style={{color: 'red'}} >Red</span> */}
-        </Gamecircle>
-
-        <Gamecircle id ={12} color="blue"  >
-            {/* <span style={{color: 'blue'}} >Blue</span> */}
-        </Gamecircle>
-        
-        <Gamecircle id ={13} color="red"  >
-            {/* <span style={{color: 'red'}} >Red</span> */}
-        </Gamecircle>
-        
-        <Gamecircle id ={14} color="blue"  >
-            {/* <span style={{color: 'blue'}} >Blue</span> */}
-        </Gamecircle>
-        
-        <Gamecircle id ={15} color="red"  >
-            {/* <span style={{color: 'red'}} >Red</span> */}
-        </Gamecircle>
-        
-        <Gamecircle id ={16} color="blue"  >
-            {/* <span style={{color: 'blue'}} >Blue</span> */}
-        </Gamecircle>
-        
+      {initBoard()}       
     </div>
   )
 } 

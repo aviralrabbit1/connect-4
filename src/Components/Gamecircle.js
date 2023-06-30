@@ -1,18 +1,18 @@
 import React from 'react';
 import '../App.css'
 
-const onclick = (event, id) => {
-  debugger;
-  alert('onClick' + id);
-}
-
-const Gamecircle = ({id, color, children}) => {
+const Gamecircle = ({id, children, className, onCircleClicked}) => {
   // const style = {
   //   backgroundColor: color, 
   // }
+
+  const onclick = (event, id) => {
+    onCircleClicked(id);  
+  }
+
   console.log(id);
   return (
-    <div className={`gameCircle ${id%2==0?"odd":"even"}`} 
+    <div className={`gameCircle ${className}`} 
     // style={id%2==0? {backgroundColor:'red'}:{backgroundColor: 'blue'}} 
     onClick={(event) => onclick(event, id) }>
       {/* Gamecircle - id= {id} */}
