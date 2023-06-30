@@ -38,6 +38,9 @@ function Gameboard() {
     if(gameBoard[id]){
       return;
     }
+
+    if(gameState !==GAME_STATE_PLAYING) return;
+    
     console.log("circle clicked " + id);
 
     if(isWinner(gameBoard, id, currentPlayer)){
