@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import Gamecircle from './Gamecircle'
 import '../App.css'
 import Header from './Header';
+import Footer from './Footer';
 
 const NUM_CIRCLES = 16; 
 const NO_PLAYER = 0;
@@ -57,6 +58,7 @@ function Gameboard() {
       <div className='gameBoard' >
         {initBoard()}       
       </div>
+      <Footer/>
     </>
   )
 } 

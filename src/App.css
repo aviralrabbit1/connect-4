@@ -1,7 +1,7 @@
 .panel{
   position: absolute;
   background-color: lightgoldenrodyellow;
-  border: 3px solid lightslategray;
+  border: 3px solid burlywood;
   -webkit-box-shadow: 7px 5px 15px 3 px rgba(0, 0, 0, 0.9);
   box-shadow: 7px 5px 15px 3px rgba(0, 0, 0, 0.9);
   z-index: 1;
@@ -26,6 +26,24 @@
   top: 50%;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+}
+
+.footer{
+  top: 570px;
+}
+
+.footer button{
+  font-weight: bold;
+  font-size: 30px;
+  height:50px; 
+  width:250px; 
+  margin-left:  -120px; 
+  position:relative;
+  top:20%; 
+  left:50%;
+  background-color: lightblue  ;
+  border: 5px solid chocolate;
+  border-radius: 8%;
 }
 
 .gameBoard {
