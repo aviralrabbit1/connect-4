@@ -3,7 +3,8 @@ import Gamecircle from './Gamecircle'
 
 function Gameboard() {
   return (
-    <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr 1fr 1fr', gridTemplateRows: '1fr 1fr 1fr 1fr', padding: 20}}>
+    <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr 1fr 1fr', 
+    gridTemplateRows: '1fr 1fr 1fr 1fr', padding: 20, width: 100}}>
         <Gamecircle id ={1} color="red"  >
             {/* <span style={{color: 'red'}} >Red</span> */}
         </Gamecircle>
