@@ -1,7 +1,7 @@
 import React from 'react';
 import '../App.css'
 
-const Gamecircle = ({id, children, onCircleClicked}) => {
+const Gamecircle = ({id, children, className, onCircleClicked}) => {
   // const style = {
   //   backgroundColor: color, 
   // }
@@ -12,7 +12,7 @@ const Gamecircle = ({id, children, onCircleClicked}) => {
 
   console.log(id);
   return (
-    <div className={`gameCircle player_0`} 
+    <div className={`gameCircle ${className}`} 
     // style={id%2==0? {backgroundColor:'red'}:{backgroundColor: 'blue'}} 
     onClick={(event) => onclick(event, id) }>
       {/* Gamecircle - id= {id} */}
