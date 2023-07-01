@@ -11,16 +11,16 @@ export const isWinner = (gameBoard, currentMove, currentPlayer) => {
         [1, 5, 9, 13],
         [2, 6, 10, 14],
         [3, 7, 11, 15],
-        [0, 5, 10, 16],
-        [3, 6, 9, 12]
+        [0, 5, 10, 15],
+        [3, 6, 9, 12],
     ];
     for(let i = 0; i < winLines.length; i++) {
         const [c1, c2, c3, c4] = winLines[i];
 
-        if(gameBoard[c1]>0 &&
-            gameBoard[c1]===gameBoard[c2] &&
-            gameBoard[c2]===gameBoard[c3] &&
-            gameBoard[c3]===gameBoard[c4]){
+        if(board[c1]>0 &&
+            board[c1]===board[c2] &&
+            board[c2]===board[c3] &&
+            board[c3]===board[c4]){
                 return true;
             }
         }
