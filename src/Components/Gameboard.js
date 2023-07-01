@@ -56,11 +56,11 @@ function Gameboard() {
       setWinPlayer(currentPlayer);
     }
     
-    // if(isDraw(gameBoard, id, currentPlayer)){
-    //   console.log("Game is Draw");
-    //   setGameState(GAME_STATE_DRAW);
-    //   setWinPlayer(NO_PLAYER);
-    // }
+    if(isDraw(gameBoard, id, currentPlayer)){
+      console.log("Game is Draw");
+      setGameState(GAME_STATE_DRAW);
+      setWinPlayer(NO_PLAYER);
+    }
     
     setGameBoard(prev =>{
       return prev.map((circle, position) => {
