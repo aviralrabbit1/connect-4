@@ -30,7 +30,18 @@ export const isWinner = (gameBoard, currentMove, currentPlayer) => {
 export const isDraw = (gameBoard, currentMove, currentPlayer) => {
     let board = [...gameBoard]; //shallow copy
     board[currentMove] = currentPlayer;
-    
+
     let count = board.reduce((n, x)=> n+(x===0), 0);
     return count === 0;    
+}
+
+export const getComputerMove = (gameBoard) => {
+    let validMoves = [];
+    for(let i = 0; i < gameBoard.length; i++) {
+        if(gameBoard[i]===0){
+            validMoves.push(i);
+        }
+    }
+    let randomMove = Math.floor(Math.random()*validMoves.length);
+    return validMoves[randomMove];
 }

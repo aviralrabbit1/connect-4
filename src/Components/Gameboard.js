@@ -3,7 +3,7 @@ import Gamecircle from './Gamecircle'
 import '../App.css'
 import Header from './Header';
 import Footer from './Footer';
-import { isDraw, isWinner } from '../Helper';
+import { getComputerMove, isDraw, isWinner } from '../Helper';
 import { render } from '@testing-library/react';
 
 export const NUM_CIRCLES = 16; 
@@ -29,6 +29,7 @@ function Gameboard() {
     console.log("initializing game");
     setGameBoard(Array(16).fill(NO_PLAYER));
     setCurrentPlayer(PLAYER_1);
+    setGameState(GAME_STATE_PLAYING);
   }
 
   const initBoard = () => {
@@ -37,6 +38,10 @@ function Gameboard() {
       circles.push(renderCircle(i));
     }
     return circles;
+  }
+
+  const suggestMove = () => {
+    circleClicked(getComputerMove(gameBoard))
   }
   
   const circleClicked = (id) => {
@@ -88,7 +93,7 @@ function Gameboard() {
       <div className="gameBoard" >
         {initBoard()}       
       </div>
-      <Footer onClickEvent={initGame} />
+      <Footer onClickEvent={initGame} onSuggestClick={suggestMove} />
     </>
   )
 } 
