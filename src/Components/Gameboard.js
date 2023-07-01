@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import Gamecircle from './Gamecircle'
 import '../App.css'
 import Header from './Header';
@@ -21,10 +21,15 @@ function Gameboard() {
   const [gameState, setGameState] = useState(GAME_STATE_PLAYING);
   const [winPlayer, setWinPlayer] = useState(NO_PLAYER);
 
-  // const initializeBoard = () => {
-  //   setCurrentPlayer = PLAYER_1;
-  //   setGameBoard(Array(16).fill(NO_PLAYER));
-  // }
+  useEffect(()=> {
+    initGame();
+  }, []);
+
+  const initGame = () => {
+    console.log("initializing game");
+    setGameBoard(Array(16).fill(NO_PLAYER));
+    setCurrentPlayer(PLAYER_1);
+  }
 
   const initBoard = () => {
     const circles = [];
@@ -35,9 +40,7 @@ function Gameboard() {
   }
   
   const circleClicked = (id) => {
-    if(gameBoard[id]){
-      return;
-    }
+    if(gameBoard[id]) return;  
 
     if(gameState !==GAME_STATE_PLAYING) return;
     
@@ -55,10 +58,6 @@ function Gameboard() {
     //   setWinPlayer(NO_PLAYER);
     // }
     
-    // const board = [...gameBoard]; //spread syntax making shallow copies
-    //avoid mutation and use map,filter, etc.
-    // board[id] = 1; 
-    // board[id] = currentPlayer;
     setGameBoard(prev =>{
       return prev.map((circle, position) => {
         if (position===id) {
@@ -89,7 +88,7 @@ function Gameboard() {
       <div className="gameBoard" >
         {initBoard()}       
       </div>
-      <Footer/>
+      <Footer onClickEvent={initGame} />
     </>
   )
 } 
