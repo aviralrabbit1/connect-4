@@ -1,5 +1,15 @@
+:root{
+  --background-color: cornflowerblue;
+  --board-background-color: bisque;
+  --panel-background-color: lightgoldenrodyellow;
+  --panel-border-color: burlywood;
+  --no-player: ;
+  --player_1: red;
+  --player_2: blue;
+}
+
 body{
-  background-color: cornflowerblue;
+  background-color: var(--background-color);
 }
 
 .app{
@@ -11,8 +21,8 @@ body{
 
 .panel{
   position: absolute;
-  background-color: lightgoldenrodyellow;
-  border: 3px solid burlywood;
+  background-color: var(--panel-background-color);
+  border: 3px solid var(--panel-border-color);
   -webkit-box-shadow: 7px 5px 15px 3px rgba(0, 0, 0, 0.9);
   box-shadow: 7px 5px 15px 3px rgba(0, 0, 0, 0.9);
   z-index: 1;
@@ -75,8 +85,8 @@ body{
   left: 50%;
   margin-left: -250px;
   top: 15%;
-  background-color: bisque;
-  border: 6px solid burlywood;
+  background-color: var(--board-background-color);
+  border: 6px solid var(--panel-border-color);
   border-radius: 8%;
   -webkit-box-shadow: 7px 5px 15px 3 px rgba(0, 0, 0, 0.9);
   /* box-shadow: 7px 5px 15px 3px rgb(192, 98, 98); */
@@ -96,9 +106,9 @@ body{
 }
 
 .player_1{
-  background-color: red;
+  background-color: var(--player_1);
 }
 
 .player_2{
-  background-color: blue;
+  background-color: var(--player_2);
 }
