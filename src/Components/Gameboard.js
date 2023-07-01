@@ -92,7 +92,7 @@ function Gameboard() {
       <div className="gameBoard" >
         {initBoard()}       
       </div>
-      <Footer onClickEvent={initGame} onSuggestClick={suggestMove} />
+      <Footer onClickEvent={initGame} onSuggestClick={suggestMove} gameState={gameState} />
     </>
   )
 } 
