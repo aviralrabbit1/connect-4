@@ -48,25 +48,27 @@ export const getRandomMove = (gameBoard) => {
 
 const getPosition = (gameBoard, moveChecks) => {
         for (let check=0; check<moveChecks.length; check++) {
-            // let step = moveChecks[check].steps;
-            for(let i=0; i < moveChecks[check].max; i+=moveChecks[check].steps) {
-                let series = gameBoard[i+moveChecks[check].indexes[0].toString()]+
+            // let step = moveChecks[check].step;
+            for(let i=0; i < moveChecks[check].max; i+=moveChecks[check].step) {
+                let series = gameBoard[i+moveChecks[check].indexes[0]].toString()+
                 gameBoard[i+moveChecks[check].indexes[1]].toString()+
                 gameBoard[i+moveChecks[check].indexes[2]].toString()+
                 gameBoard[i+moveChecks[check].indexes[3]].toString();
 
+                console.log(series);
+
             switch (series) {
-                case 1110:
-                case 2220:
+                case "1110":
+                case "2220":
                     return i+moveChecks[check].indexes[3];
-                case 1101:
-                case 2202:
+                case "1101":
+                case "2202":
                     return i+moveChecks[check].indexes[2];
-                case 1011:
-                case 2022:
+                case "1011":
+                case "2022":
                     return i+moveChecks[check].indexes[1];
-                case 0o111:
-                case 0o222:
+                case "0111":
+                case "0222":
                     return i+moveChecks[check].indexes[0];
             
                 default:
@@ -82,28 +84,29 @@ export const getComputerMove = (gameBoard) => {
         {
             indexes: [0, 4, 8, 12],
             max: 4,
-            steps: 1
+            step: 1
         },
         // horizontal move
         {
             indexes: [0, 1, 2, 3],
             max: 16,
-            steps: 4
+            step: 4
         },
         // Diagonal move
         {
             indexes: [0, 5, 10, 15],
             max: 16,
-            steps: 16
+            step: 16
         },
         // Diagonal move
         {
             indexes: [3, 6, 9, 12],
             max: 16,
-            steps: 16
+            step: 16
         }
     ];
     let position = getPosition(gameBoard, moveChecks);
+    console.log(position);
     if(position > -1) return position;
 
     return getRandomMove(gameBoard);

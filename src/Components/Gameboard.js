@@ -4,7 +4,6 @@ import '../App.css'
 import Header from './Header';
 import Footer from './Footer';
 import { getComputerMove, isDraw, isWinner } from '../Helper';
-import { render } from '@testing-library/react';
 
 export const NUM_CIRCLES = 16; 
 export const NO_PLAYER = 0;
