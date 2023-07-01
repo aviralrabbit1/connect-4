@@ -3,8 +3,7 @@ import Gamecircle from './Gamecircle'
 import '../App.css'
 import Header from './Header';
 import Footer from './Footer';
-import { isDraw, isWinner } from '../Helper';
-import { render } from '@testing-library/react';
+import { getComputerMove, isDraw, isWinner } from '../Helper';
 
 export const NUM_CIRCLES = 16; 
 export const NO_PLAYER = 0;
@@ -29,6 +28,7 @@ function Gameboard() {
     console.log("initializing game");
     setGameBoard(Array(16).fill(NO_PLAYER));
     setCurrentPlayer(PLAYER_1);
+    setGameState(GAME_STATE_PLAYING);
   }
 
   const initBoard = () => {
@@ -37,6 +37,10 @@ function Gameboard() {
       circles.push(renderCircle(i));
     }
     return circles;
+  }
+
+  const suggestMove = () => {
+    circleClicked(getComputerMove(gameBoard))
   }
   
   const circleClicked = (id) => {
@@ -52,11 +56,11 @@ function Gameboard() {
       setWinPlayer(currentPlayer);
     }
     
-    // if(isDraw(gameBoard, id, currentPlayer)){
-    //   console.log("Game is Draw");
-    //   setGameState(GAME_STATE_DRAW);
-    //   setWinPlayer(NO_PLAYER);
-    // }
+    if(isDraw(gameBoard, id, currentPlayer)){
+      console.log("Game is Draw");
+      setGameState(GAME_STATE_DRAW);
+      setWinPlayer(NO_PLAYER);
+    }
     
     setGameBoard(prev =>{
       return prev.map((circle, position) => {
@@ -88,7 +92,7 @@ function Gameboard() {
       <div className="gameBoard" >
         {initBoard()}       
       </div>
-      <Footer onClickEvent={initGame} />
+      <Footer onClickEvent={initGame} onSuggestClick={suggestMove} />
     </>
   )
 } 
